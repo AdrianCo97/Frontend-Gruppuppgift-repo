@@ -8,7 +8,6 @@ let count = document.getElementById('count');
 let price = document.getElementById('price');
 let selectedAge = document.getElementById('ticket');
 let selectedMovie = document.getElementById('movie');
-//let time = document.querySelector('.time');
 let selectedDay = document.getElementById('date');
 
 let ticketDetails = [];
@@ -24,19 +23,6 @@ container.addEventListener('click', e => {
     updateSelectedSeatsCount();
   }
 });
-/*
-// time select event
-time.onclick = function () {
-  const rbs = document.querySelectorAll('input[name="contact"]');
-  for (const rb of rbs) {
-    if (rb.checked) {
-      selectedTime = rb.value;
-      break;
-    }
-  }
-
-};
-*/
 
 
 // this function book your tickets for the selected movie
@@ -68,7 +54,8 @@ function bookingSelectedSeats() {
     alert("Ticket is now booked by: " + name + "\n" +
       "Movie: " + selectedMovie.value + "\n" +
       "Seat: " + selectedSeats + "\n" +
-      "Day: " + selectedDay.value );
+      "Day: " + selectedDay.value + "\n" +
+      "Total Price: " + price.innerText);
 
 
     // Mahran kolla spara jsonString i file .json
@@ -102,16 +89,14 @@ function bookingSelectedSeats() {
       + JSON.stringify(list[2]) + "</br>"
       + JSON.stringify(list[3]) + "</br>"
       + JSON.stringify(list[4]) + "</br>"
-      + JSON.stringify(list[5]) + "</br>"
-      + JSON.stringify(list[6]);
+      + JSON.stringify(list[5]);
     //print out the result
-    window.confirm("Print the ticket");
-
-    if (confirm) {
+    let printTicket = window.confirm("Print the ticket");
+    if (printTicket) {
       document.writeln(data_list);
       window.print();
     } else {
-      txt = "You pressed Cancel!";
+      alert("You pressed Cancel!");
     }
 
 
