@@ -1,0 +1,14 @@
+@media only screen and (max-width: 600px){
+  .film_ikoner{
+    display:block;
+  }
+
+  .film_ikoner img{
+    width: 60vw;
+    height: 80%
+  }
+
+  .schema{
+    display: none;
+  }
+}
