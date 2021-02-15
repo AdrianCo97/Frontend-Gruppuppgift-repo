@@ -101,17 +101,9 @@ h3{
 }
 
 .film_ikoner{
-  border: solid rgb(90, 90, 90);
-  background-color: rgba(0, 0, 0, 0.658);
-  width:fit-content;
-  padding:5px;
-  margin: auto;
+  padding-top: -0px;
   display:flex;
-  text-align: center;
-}
-
-.film_ikoner div{
-  padding:5px;
+  justify-content: center;
 }
 
 .film_ikoner img{
@@ -125,7 +117,10 @@ h3{
   opacity: 0.9;
 }
 
-
+.film_ikoner div{
+  margin: 5px;
+  text-align: center;
+}
 
 .schema{
   justify-content: center;
@@ -133,11 +128,8 @@ h3{
   font-family: 'Roboto', sans-serif;
   font-size: larger;
   text-align: center;
-  padding:10px;
-  margin: 10px auto;
-  border: solid rgb(90, 90, 90);
-  background-color: rgba(0, 0, 0, 0.658);
-  width:fit-content;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .schema div{
