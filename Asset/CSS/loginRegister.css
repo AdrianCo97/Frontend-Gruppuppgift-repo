@@ -2,7 +2,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background: #34495e;
+  background: whitesmoke;
 }
 
 .box{
@@ -12,7 +12,7 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background:white;
+  background:whitesmoke;
   text-align: center;
   border-radius: 24px;
 }
@@ -45,14 +45,14 @@ border-color: #2ecc71;
 
 .box input[type = "submit"]{
   border:0;
-  background: none;
+  background:none;
   display: block;
   margin: 20px auto;
   text-align: center;
   border: 2px solid #2ecc71;
   padding: 14px 40px;
   outline: none;
-  color: black;
+  color:black;
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;
@@ -64,12 +64,24 @@ border-color: #2ecc71;
 
 .box h2{
   color: black;
-  text-transform: uppercase;
   font-weight: 500;
   font-size: 14px;
+  border:2px solid #2ecc71;
+  width: 100px;
+  position: absolute;
+  margin-left: 60px;
+  border-radius: 24px;
+  transition: 00.25s;
 }
 
 h2>a:visited{
   color: black;
   
+}
+h2>a{
+  padding-left:22px;
+  padding-right: 22px;
+}
+h2:hover{
+    background: #2ecc71;
 }
