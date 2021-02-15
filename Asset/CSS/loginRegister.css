@@ -45,11 +45,11 @@ border-color: #2ecc71;
 
 .box input[type = "submit"]{
   border:0;
-  background:white;
+  background:#1db35ba8;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px  #1db35ba8;
   padding: 14px 40px;
   outline: none;
   color:black;
@@ -63,16 +63,17 @@ border-color: #2ecc71;
 }
 
 .box h2{
-  background-color: white;
+  background-color: #1db35ba8;
   color: black;
   font-weight: 500;
   font-size: 14px;
-  border:2px solid #2ecc71;
+  border:2px #1db35ba8;
   width: 100px;
-  position: absolute;
   margin-left: 60px;
+  position: relative;
   border-radius: 24px;
   transition: 00.25s;
+  padding-top: 6px;
 }
 
 h2>a:visited{
@@ -80,8 +81,8 @@ h2>a:visited{
   
 }
 h2>a{
-  padding-left:22px;
-  padding-right: 22px;
+  padding-left: 15px;
+  padding-right: 17px;
 }
 h2:hover{
     background: #2ecc71;
