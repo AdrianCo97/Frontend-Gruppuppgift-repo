@@ -3,46 +3,36 @@
 }
 
 .movieimage {
-  width: 200px;
-  border: black;
-  border-radius: 20px;
+  width: 20vw;
   z-index: -1;
-}
-.imageContainer{
-  overflow: hidden;
-  display:inline-block;
-  border-radius: 20px;
-  z-index: -1;
+  padding: 5px;
+  border: solid rgb(90, 90, 90);
+  background-color: rgba(0, 0, 0, 0.658);
+}  
 
-}
 .movieimage:hover{
-  transform: scale(1.2);
+  transform: scale(1.01);
 }
 .movietitle{
-  font-family: 'Roboto' sans-serif;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 .textContainer{
+  font-family: 'Roboto', sans-serif;
+  font-family: small;
   display: inline-block;
-  width: 50%;
-  margin-left: 40px;
-  position: absolute;
+  width: 60vw;
+  margin-left: 20px;
+  padding: 10px;
+  border: solid rgb(90, 90, 90);
+  background-color: rgba(0, 0, 0, 0.658);
+  height: fit-content;
 }
 
 .contentContainer{
-  margin-top: 50px;
-  margin-left: 180px;
-  height: 40vh;
-
+  margin: 10px;
+  display: flex;
 }
 
-
-.moviedescribtion{
-  font-family:'Roboto'sans-serif ;
-  border: black;
-  background-color:rgba(255, 255, 255, .10);
-  
-}
 
 h2{
   font-family: 'Roboto', sans-serif;
