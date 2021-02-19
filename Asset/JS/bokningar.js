@@ -9,10 +9,16 @@ let price = document.getElementById('price');
 let selectedAge = document.getElementById('ticket');
 let selectedMovie = document.getElementById('movie');
 let selectedDay = document.getElementById('date');
-
+let selectedSeats;
+let seatsIndex;
 let ticketDetails = [];
-//let selectedTime;
+let counter = 0;
 
+
+
+//localStorage.clear('occupiedSeats');
+OccupiedSelectedSeats();
+console.log('local stored storage: ',localStorage.occupiedSeats);
 // Seat select event
 container.addEventListener('click', e => {
   if (
@@ -27,7 +33,8 @@ container.addEventListener('click', e => {
 
 // this function book your tickets for the selected movie
 function bookingSelectedSeats() {
-  let selectedSeats = localStorage.getItem('selectedSeats');
+  selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
   let name = window.prompt("Enter your name to book your tickets: ");
 
   if (name === null)
@@ -45,9 +52,17 @@ function bookingSelectedSeats() {
     seats.forEach((seat, index) => {
       if (selectedSeats.indexOf(index) > -1) {
         seat.classList.add('occupied');
-        localStorage.removeItem('selectedSeats');
+        counter = 1;
+       // console.log('counter: ', counter);
       }
     });
+
+    if (counter === 1) {
+      store(selectedSeats);
+      console.log(localStorage.occupiedSeats);
+      counter = 0;
+    }
+
     ticketDetails.push({ "Name": name }, { "Movie Name": selectedMovie.value }, { "Seat No": selectedSeats },
       { "Day": selectedDay.value }, { "Total Price": price.innerText },
       { "Number of Tickets": count.innerText });
@@ -57,8 +72,7 @@ function bookingSelectedSeats() {
       "Day: " + selectedDay.value + "\n" +
       "Total Price: " + price.innerText);
 
-
-    // Mahran kolla spara jsonString i file .json
+  
     let jsonString = JSON.stringify(ticketDetails, null, ' ');
 
     //Deserialize the json array.
@@ -100,20 +114,39 @@ function bookingSelectedSeats() {
     }
 
 
-  }
+    }
 }
 
 // this function counts the number of seats and their total price 
 function updateSelectedSeatsCount() {
-  let selectedSeats = document.querySelectorAll('.row .selected:not(.occupied)');
-  let seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
-
+ selectedSeats = document.querySelectorAll('.row .seat.selected:not(.occupied)');
+  seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
   localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
-
+ 
   let selectedSeatsCount = selectedSeats.length;
   let ticketPrice = +selectedAge.value;
   count.innerText = selectedSeatsCount;
   price.innerText = selectedSeatsCount * ticketPrice;
+}
+
+
+// this function re-call the occupied selected seats
+function OccupiedSelectedSeats() {
+  selectedSeats = localStorage.occupiedSeats;
+  if (selectedSeats !== undefined) {
+    for (let i = 0; i < selectedSeats.length; i++) {
+      split_string = selectedSeats.match(/\d+/g);
+      if (split_string[i] !== undefined) {
+        seats.forEach((seat, index) => {
+          if (split_string[i] == index) {
+            seat.classList.add('occupied');
+        }
+      });
+    }
+  }
+    
+    } else
+      console.log('Storage is empty....');
 }
 
 
@@ -122,3 +155,4 @@ function myButton() {
   bookingSelectedSeats();
 }
 
+OccupiedSelectedSeats();
