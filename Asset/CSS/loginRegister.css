@@ -74,6 +74,8 @@ border-color: #2ecc71;
   border-radius: 24px;
   transition: 00.25s;
   padding-top: 6px;
+  height: 30px;
+
 }
 
 h2>a:visited{
@@ -83,6 +85,9 @@ h2>a:visited{
 h2>a{
   padding-left: 15px;
   padding-right: 17px;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 h2:hover{
     background: #2ecc71;
