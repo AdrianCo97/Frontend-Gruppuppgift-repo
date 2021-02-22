@@ -16,7 +16,6 @@ let counter = 0;
 
 
 
-//localStorage.clear('occupiedSeats');
 OccupiedSelectedSeats();
 console.log('local stored storage: ',localStorage.occupiedSeats);
 // Seat select event
@@ -41,14 +40,14 @@ function bookingSelectedSeats() {
     alert("Booking is cancelled....");
   else if (name === "")
     alert("The Name must be entered...");
-  else if (selectedMovie.value === "" || selectedDay.value === "" ||
-    selectedAge.value === "")
-    alert("Please fill all the requried blanks...");
+  else if (selectedMovie.value == 0)
+    alert("Please select the movie...");
+  else if (price.innerText == 0)
+    alert("Price cannot be zero...");
 
 
-  if (name !== null && name !== "" && selectedMovie.value !== ""
-    && selectedDay.value !== "" && selectedAge.value !== ""
-    && selectedSeats !== null && selectedSeats.length > 0) {
+  if (name !== null && name !== "" && selectedMovie.value != 0
+   && price.innerText != 0 && selectedSeats !== null && selectedSeats.length > 0) {
     seats.forEach((seat, index) => {
       if (selectedSeats.indexOf(index) > -1) {
         seat.classList.add('occupied');
