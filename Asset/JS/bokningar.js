@@ -17,15 +17,31 @@ let counter = 0;
 
 
 OccupiedSelectedSeats();
-console.log('local stored storage: ',localStorage.occupiedSeats);
+console.log('local stored storage: ', localStorage.occupiedSeats);
+
+
+// Age select event
+selectedAge.addEventListener('click', e => {
+  price.innerText = count.innerText * e.target.value;
+});
+
+// Movie select event
+selectedMovie.addEventListener('click', e => {
+  price.innerText = count.innerText * selectedAge.value;
+});
+
 // Seat select event
 container.addEventListener('click', e => {
   if (
     e.target.classList.contains('seat') &&
     !e.target.classList.contains('occupied')
   ) {
-    e.target.classList.toggle('selected');
-    updateSelectedSeatsCount();
+    if (selectedMovie.value != 0) {
+      e.target.classList.toggle('selected');
+      updateSelectedSeatsCount();
+    }
+    else
+      alert("Please select the movie...");
   }
 });
 
@@ -39,11 +55,7 @@ function bookingSelectedSeats() {
   if (name === null)
     alert("Booking is cancelled....");
   else if (name === "")
-    alert("The Name must be entered...");
-  else if (selectedMovie.value == 0)
-    alert("Please select the movie...");
-  else if (price.innerText == 0)
-    alert("Price cannot be zero...");
+    alert("Enter the Name...");
 
 
   if (name !== null && name !== "" && selectedMovie.value != 0
@@ -52,7 +64,8 @@ function bookingSelectedSeats() {
       if (selectedSeats.indexOf(index) > -1) {
         seat.classList.add('occupied');
         counter = 1;
-       // console.log('counter: ', counter);
+        count.innerText = 0;
+        price.innerText = 0;
       }
     });
 
@@ -151,7 +164,11 @@ function OccupiedSelectedSeats() {
 
 // booking button function
 function myButton() {
-  bookingSelectedSeats();
+  if (count.innerText != 0) {
+    bookingSelectedSeats();
+  }
+  else
+    alert("Please select the seat....");
 }
 
 OccupiedSelectedSeats();
