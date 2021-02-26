@@ -56,10 +56,7 @@ function bookingSelectedSeats() {
     alert("Booking is cancelled....");
   else if (name === "")
     alert("Enter the Name...");
-
-
-  if (name !== null && name !== "" && selectedMovie.value != 0
-   && price.innerText != 0 && selectedSeats !== null && selectedSeats.length > 0) {
+  else {
     seats.forEach((seat, index) => {
       if (selectedSeats.indexOf(index) > -1) {
         seat.classList.add('occupied');
