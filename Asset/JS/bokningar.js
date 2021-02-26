@@ -64,8 +64,6 @@ function bookingSelectedSeats() {
       if (selectedSeats.indexOf(index) > -1) {
         seat.classList.add('occupied');
         counter = 1;
-        count.innerText = 0;
-        price.innerText = 0;
       }
     });
 
@@ -84,6 +82,8 @@ function bookingSelectedSeats() {
       "Day: " + selectedDay.value + "\n" +
       "Total Price: " + price.innerText);
 
+    count.innerText = 0;
+    price.innerText = 0;
   
     let jsonString = JSON.stringify(ticketDetails, null, ' ');
 
