@@ -17,7 +17,9 @@ let counter = 0;
 
 
 OccupiedSelectedSeats();
+
 console.log('local stored storage: ', localStorage.occupiedSeats);
+console.log("Tickets written to localStorage:\n" + localStorage.getItem('biljetter'));
 
 
 // Age select event
@@ -84,35 +86,23 @@ function bookingSelectedSeats() {
   
     let jsonString = JSON.stringify(ticketDetails, null, ' ');
 
-    //Deserialize the json array.
-    var list = JSON.parse(jsonString);
-    console.log(list);
-
     // Save the data to the localStorage.
-    localStorage.setItem('list', JSON.stringify(list))
-    console.log("Data written to localStorage");
 
-    // get the saved data from localStorage.
-    var data = ' ' + localStorage.getItem('list');
-    console.log(data);
+    var biljetter = localStorage.biljetter ? JSON.parse(localStorage.biljetter) : [];
+    biljetter.push(JSON.parse(jsonString));
+    localStorage.setItem('biljetter', JSON.stringify(biljetter))
+    
+    console.log("Tickets written to localStorage:\n" + localStorage.getItem('biljetter'));
 
-    /*
-    //Save to Json file.
-    let fs = require('fs'), jsoneData = JSON.stringify(list);
-    fs.writefile("./Biljetter/Biljetter.json", jsoneData, function (err) {
-      if (err) {
-        console.log(err);
-      }
-    });
-*/
+  
     //Using the output deserialized values to print the result
     var data_list = " User Ticket" + "</br>"
-      + JSON.stringify(list[0]) + "</br>"
-      + JSON.stringify(list[1]) + "</br>"
-      + JSON.stringify(list[2]) + "</br>"
-      + JSON.stringify(list[3]) + "</br>"
-      + JSON.stringify(list[4]) + "</br>"
-      + JSON.stringify(list[5]);
+      + JSON.stringify(biljetter[0]) + "</br>"
+      + JSON.stringify(biljetter[1]) + "</br>"
+      + JSON.stringify(biljetter[2]) + "</br>"
+      + JSON.stringify(biljetter[3]) + "</br>"
+      + JSON.stringify(biljetter[4]) + "</br>"
+      + JSON.stringify(biljetter[5]);
     //print out the result
     let printTicket = window.confirm("Print the ticket");
     if (printTicket) {
