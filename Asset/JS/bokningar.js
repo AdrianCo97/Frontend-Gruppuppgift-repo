@@ -66,43 +66,39 @@ function bookingSelectedSeats() {
       }
     });
 
-    if (counter === 1) {
-      store(selectedSeats);
-      console.log(localStorage.occupiedSeats);
-      counter = 0;
-    }
-
-    ticketDetails.push({ "Name": name }, { "Movie Name": selectedMovie.value }, { "Seat No": selectedSeats },
-      { "Day": selectedDay.value }, { "Total Price": price.innerText },
-      { "Number of Tickets": count.innerText });
+    ticketDetails.push({ Name : name }, { Movie : selectedMovie.value }, { SeatNo : selectedSeats },
+      { Day : selectedDay.value }, { Price : price.innerText },
+      { Tickets : count.innerText });
     alert("Ticket is now booked by: " + name + "\n" +
       "Movie: " + selectedMovie.value + "\n" +
       "Seat: " + selectedSeats + "\n" +
       "Day: " + selectedDay.value + "\n" +
       "Total Price: " + price.innerText);
 
+     if (counter === 1) {
+      store(selectedSeats);
+      console.log("Occupied seats written to localStorage:\n",localStorage.occupiedSeats);
+      
+      storeBiljetter(JSON.stringify(ticketDetails));
+      console.log("Tickets written to localStorage:\n", ticketDetails);
+      ticketDetails.length = 0;
+      counter = 0;
+    }
+
     count.innerText = 0;
     price.innerText = 0;
-  
-    let jsonString = JSON.stringify(ticketDetails, null, ' ');
-
-    // Save the data to the localStorage.
-
-    var biljetter = localStorage.biljetter ? JSON.parse(localStorage.biljetter) : [];
-    biljetter.push(JSON.parse(jsonString));
-    localStorage.setItem('biljetter', JSON.stringify(biljetter))
     
-    console.log("Tickets written to localStorage:\n" + localStorage.getItem('biljetter'));
+    var list = localStorage.getItem('biljetter');
 
   
     //Using the output deserialized values to print the result
     var data_list = " User Ticket" + "</br>"
-      + JSON.stringify(biljetter[0]) + "</br>"
-      + JSON.stringify(biljetter[1]) + "</br>"
-      + JSON.stringify(biljetter[2]) + "</br>"
-      + JSON.stringify(biljetter[3]) + "</br>"
-      + JSON.stringify(biljetter[4]) + "</br>"
-      + JSON.stringify(biljetter[5]);
+      + JSON.stringify(list[0]) + "</br>"
+      + JSON.stringify(list[1]) + "</br>"
+      + JSON.stringify(list[2]) + "</br>"
+      + JSON.stringify(list[3]) + "</br>"
+      + JSON.stringify(list[4]) + "</br>"
+      + JSON.stringify(list[5]);
     //print out the result
     let printTicket = window.confirm("Print the ticket");
     if (printTicket) {
