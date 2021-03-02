@@ -90,11 +90,13 @@ h3{
 }
 
 .film_ikoner{
+  font-family: 'Roboto', sans-serif;
   border: solid rgb(90, 90, 90);
   background-color: rgba(0, 0, 0, 0.658);
-  width:fit-content;
-  padding:5px;
+  justify-content: center;
   margin: auto;
+  width: min-content;
+  padding:5px;
   display:flex;
   text-align: center;
 }
@@ -126,7 +128,7 @@ h3{
   margin: 10px auto;
   border: solid rgb(90, 90, 90);
   background-color: rgba(0, 0, 0, 0.658);
-  width:fit-content;
+  width: min-content;
 }
 
 .schema div{
