@@ -87,37 +87,17 @@ function bookingSelectedSeats() {
 
     count.innerText = 0;
     price.innerText = 0;
-    
-    var list = localStorage.getItem('biljetter');
-
-  
-    //Using the output deserialized values to print the result
-    var data_list = " User Ticket" + "</br>"
-      + JSON.stringify(list[0]) + "</br>"
-      + JSON.stringify(list[1]) + "</br>"
-      + JSON.stringify(list[2]) + "</br>"
-      + JSON.stringify(list[3]) + "</br>"
-      + JSON.stringify(list[4]) + "</br>"
-      + JSON.stringify(list[5]);
-    //print out the result
-    let printTicket = window.confirm("Print the ticket");
-    if (printTicket) {
-      document.writeln(data_list);
-      window.print();
-    } else {
-      alert("You pressed Cancel!");
-    }
 
 
-    }
+  }
 }
 
 // this function counts the number of seats and their total price 
 function updateSelectedSeatsCount() {
- selectedSeats = document.querySelectorAll('.row .seat.selected:not(.occupied)');
+  selectedSeats = document.querySelectorAll('.row .seat.selected:not(.occupied)');
   seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
   localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
- 
+
   let selectedSeatsCount = selectedSeats.length;
   let ticketPrice = +selectedAge.value;
   count.innerText = selectedSeatsCount;
@@ -135,13 +115,13 @@ function OccupiedSelectedSeats() {
         seats.forEach((seat, index) => {
           if (split_string[i] == index) {
             seat.classList.add('occupied');
-        }
-      });
+          }
+        });
+      }
     }
-  }
-    
-    } else
-      console.log('Storage is empty....');
+
+  } else
+    console.log('Storage is empty....');
 }
 
 
