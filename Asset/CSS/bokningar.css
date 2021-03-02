@@ -9,7 +9,8 @@ header{
   justify-content: space-between;
   align-items: center;
   background-color:white;
-  position:sticky;
+  position:absolute;
+  top:0;
   width:100%;
   z-index: 1;
   margin-bottom: 20px;
@@ -53,7 +54,10 @@ header a {
 
 body {
   margin: 0px;
-  background-color:black;
+  background-image: url('https://highspringsplayhouse.com/wp-content/uploads/2016/01/red-curtains.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   color: #fff;
   display: flex;
   flex-direction: column;
