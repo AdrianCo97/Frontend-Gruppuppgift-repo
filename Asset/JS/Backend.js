@@ -14,6 +14,7 @@ async function start() {
   // that are in it
   console.log('All db tables', await db.tables());
   console.log('All db views', await db.views());
+  console.log("it worked")
 }
 
 start();

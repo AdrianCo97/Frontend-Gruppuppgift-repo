@@ -1,6 +1,6 @@
 require('best-sqlite3-frontend')({
   bestSqlite3: require('best-sqlite3'),
-  databasePath: 'databases/chinook.db',
+  databasePath: 'databases/Movietickets.db',
   addDatabaseFunctions: {
     // example of user defined functions
     // (write your own as you go...)
