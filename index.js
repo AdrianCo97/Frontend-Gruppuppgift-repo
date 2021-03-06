@@ -1,6 +1,6 @@
 require('best-sqlite3-frontend')({
   bestSqlite3: require('best-sqlite3'),
-  databasePath: '/asset/databases/chinook.db',
+  databasePath: 'databases/chinook.db',
   addDatabaseFunctions: {
     // example of user defined functions
     // (write your own as you go...)
@@ -9,7 +9,7 @@ require('best-sqlite3-frontend')({
   },
   express: require('express'),
   port: 3000,
-  staticFolder: 'www'
+  staticFolder: 'Asset'
 }).then(({ app, db }) => {
   // if you want to you can
   // do more things with the express app 
